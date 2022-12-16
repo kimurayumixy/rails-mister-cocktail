@@ -1,6 +1,12 @@
 <h1>This is cocktail index</h1>
-<% @cocktails.each do |cocktail| %>
-  <ul>
-    <ol><%= cocktail.name %></ol>
-  </ul>
-<% end %>
+<div class="container mt-3 mb-3">
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.photo.attached? ? cl_image_path(cocktail.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
+        <ul>
+          <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
